@@ -1,0 +1,210 @@
+.main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+}
+
+.main > * {
+    z-index: 10;
+}
+
+.logo-container {
+    position: relative;
+
+    img {
+        position: absolute;
+        top: -10rem;
+    }
+}
+
+.content-container {
+    flex-basis: 50%;
+    margin-top: 15rem;
+    margin-right: -20%;
+    background-color: $color-beta;
+}
+
+.header {
+    padding-top: 1.5em;
+    font-size: 3.25rem;
+    font-weight: 100;
+    color: $color-alpha;
+    text-transform: uppercase;
+
+    span {
+        display: block;
+
+        &:last-child {
+            color: $color-chi;
+        }
+    }
+}
+
+.description {
+    margin-top: 1.5rem;
+    color: $color-gamma;
+    font-weight: 100;
+    font-size: 1.13rem;
+    min-width: 80%;
+    width: 0;
+    line-height: 1.6em;
+    margin-bottom: 3.5rem;
+}
+
+.bottom-section {
+    margin-right: 1rem;
+}
+
+.brands-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.2rem;
+    margin-top: 4rem;
+    list-style: none;
+}
+
+.background-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    flex-basis: 60%;
+    z-index: 1;
+}
+
+.background-img {
+    position: absolute;
+    margin-top: 4.5rem;
+    height: auto;
+    width: 65rem;
+}
+
+.background-mobile {
+    display: none;
+
+    background: url("/image-host-mobile.webp");
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    position: fixed;
+}
+
+// Tablet
+@media screen and (max-width: 850px) {
+    .main {
+        justify-content: flex-start;
+    }
+
+    .logo-container {
+        position: absolute;
+
+        img {
+            position: fixed;
+            top: 3rem;
+        }
+    }
+
+    .background-container {
+        position: relative;
+        overflow: revert;
+        align-items: flex-start;
+    }
+
+    .background-img {
+        margin-top: 0rem;
+        height: auto;
+        width: 32rem;
+    }
+
+    .content-container {
+        margin-top: 15rem;
+        margin-right: 0;
+        padding-right: 2em;
+        padding-left: 2.5em;
+    }
+
+    .header {
+        white-space: nowrap;
+        font-size: 3rem;
+    }
+
+    .description {
+        min-width: 90%;
+        width: 0;
+    }
+}
+
+// Mobile
+@media screen and (max-width: 670px) {
+    .logo-container {
+        position: revert;
+        img {
+            position: revert;
+        }
+    }
+
+    .background-container {
+        display: none;
+    }
+
+    .content-container {
+        margin-top: 3rem;
+        padding-right: 0;
+        padding-left: 0;
+        background-color: transparent;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header {
+        font-size: 1.6rem;
+        text-align: center;
+        line-height: 1.4em;
+    }
+
+    .description {
+        width: 90%;
+        font-size: 0.9rem;
+        margin-bottom: 3em;
+        text-align: center;
+        line-height: 1.5em;
+    }
+
+    .bottom-section {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .brands-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2%;
+        margin-top: 0rem;
+        margin-bottom: 3em;
+        width: 100%;
+    }
+
+    .brands-container img {
+        height: 1rem;
+        width: auto;
+    }
+
+    .background-mobile {
+        display: revert;
+        background-color: rgba($color-beta, 0.2);
+        filter: opacity(0.1);
+    }
+}
